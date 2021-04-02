@@ -1,3 +1,5 @@
+#Joel Anguiano
+
 import socket, sys, re, time, os
 sys.path.append("../lib")
 import params
@@ -22,15 +24,15 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((listenAddr, listenPort))
 s.listen(1)
 
+#The above code was provided by Dr.Freudenthal
 ####################################################
 while True:
     conn,addr = s.accept()
     fs = framdedSocket(conn)
     if os.fork()==0:
         print("Connected by", addr)
-        contents = fs.receiveMessage()
+        filename = fs.receiveMessage()
 
-        filename = contents
 
         if os.path.isfile(filename):
             fs.sendMessage(b"NO")
