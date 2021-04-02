@@ -1,3 +1,4 @@
+#Joel Anguiano
 #Modified Echo-Client.py provided by Dr. Freudenthal
 
 import socket,sys,re,time,os
@@ -52,10 +53,12 @@ if delay != 0:
     time.sleep(delay)
     print("done sleeping")
 
-fs = framedSocket()
+#above code provided by Dr.Freudenthal#
+    
+fs = framedSocket() #create instance of framedSocket class
 
-input = my_getLine()
-command,localfile,host,remotefile = parseTCPInput(input)
+input = my_getLine() #input from the user
+command,localfile,host,remotefile = parseTCPInput(input) #parse input and get filename
 
 fs.sendMessage(remotefile.encode())
 
