@@ -1,3 +1,5 @@
+#Joel Anguiano
+
 import socket, sys, re, time, os
 sys.path.append("../lib")
 import params
@@ -23,6 +25,7 @@ s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 s.bind((listenAddr,listenPort))
 s.listen(1)
 
+######above code provided by Dr.Freudenthal
 
 while True:
     conn,addr = s.accept()
