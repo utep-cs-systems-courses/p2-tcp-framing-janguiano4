@@ -1,3 +1,5 @@
+#Joel Anguiano
+
 import sys,os,socket,threading
 from time import time
 from threading import Thread, enumerate
@@ -7,20 +9,20 @@ inTransfer = set()
 transferLock = threading.Lock()
 
 class Worker(Thread):
-    def _init_(self,conn,addr):
+    def _init_(self,conn,addr): #creates instance of the class
         global threadNum
         Thread._init_(self, name="Thread-%d" % threadNum)
-        threadNum += 1
-        self.conn = conn
+        threadNum += 1 #add +1 for the number of threads we have
+        self.conn = conn #set both conn. and addr. to self
         self.addr = addr
 
-def checkTrasnfer(self,filename):
+def checkTrasnfer(self,filename): #we check if we can transfer
     global InTransfer, transferLock
-    transferLock.acquire()
-    if filename in inTransfer:
+    transferLock.acquire() #we acquire the lock, we lock it 
+    if filename in inTransfer: #if in transfer, meaning we already have a thread = false
         canTransfer = False
     else:
-        canTransfer = True
+        canTransfer = True #if we can add it, we add it to the set
         inTransfer.add(filename)
     transferLock.release()
 
